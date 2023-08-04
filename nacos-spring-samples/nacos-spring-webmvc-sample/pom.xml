@@ -12,7 +12,7 @@
 
     <groupId>com.alibaba.nacos</groupId>
     <artifactId>nacos-spring-webmvc-sample</artifactId>
-    <name>Alibaba Nacos :: Samples :: Spring Web MVC ${project.version}</name>
+    <name>Alibaba Nacos :: Samples :: Spring Web MVC</name>
     <packaging>war</packaging>
 
     <dependencies>

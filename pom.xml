@@ -7,7 +7,7 @@
     <groupId>com.alibaba.nacos</groupId>
     <artifactId>nacos-spring-parent</artifactId>
     <version>1.1.1-internal-20230801-SNAPSHOT</version>
-    <name>Alibaba Nacos :: Spring :: POM ${project.version}</name>
+    <name>Alibaba Nacos :: Spring :: POM</name>
     <packaging>pom</packaging>
 
 
@@ -77,6 +77,10 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-javadoc-plugin.version>2.7</maven-javadoc-plugin.version>
+        <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
+        <maven-source-plugin.version>2.1.2</maven-source-plugin.version>
         <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
         <!-- Exclude all generated code -->
         <sonar.jacoco.itReportPath>${project.basedir}/../test/target/jacoco-it.exec
@@ -96,6 +100,7 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <!-- Alibaba's Spring Context Support -->
         <spring-context-support.version>1.0.11</spring-context-support.version>
+        <spring-javaformat-maven-plugin.version>0.0.39</spring-javaformat-maven-plugin.version>
     </properties>
 
     <!-- 管理依赖版本号,子项目不会默认依赖 -->
@@ -238,7 +243,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.1</version>
+                <version>${maven-checkstyle-plugin.version}</version>
             </plugin>
         </plugins>
     </reporting>
@@ -248,7 +253,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.7</version>
+                <version>${maven-javadoc-plugin.version}</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
@@ -261,7 +266,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.10</version>
+                <version>${maven-eclipse-plugin.version}</version>
                 <configuration>
                     <useProjectReferences>false</useProjectReferences>
                     <additionalConfig>
@@ -283,7 +288,7 @@
             <plugin>
                 <groupId>io.spring.javaformat</groupId>
                 <artifactId>spring-javaformat-maven-plugin</artifactId>
-                <version>0.0.39</version>
+                <version>${spring-javaformat-maven-plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -293,7 +298,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.1.2</version>
+                <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>

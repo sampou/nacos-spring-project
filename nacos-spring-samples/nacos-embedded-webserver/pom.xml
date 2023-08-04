@@ -12,7 +12,7 @@
 
     <groupId>com.alibaba.nacos</groupId>
     <artifactId>nacos-embedded-webserver</artifactId>
-    <name>Alibaba Nacos :: Samples :: Embedded Web Server ${project.version}</name>
+    <name>Alibaba Nacos :: Samples :: Embedded Web Server</name>
 
     <dependencies>
 

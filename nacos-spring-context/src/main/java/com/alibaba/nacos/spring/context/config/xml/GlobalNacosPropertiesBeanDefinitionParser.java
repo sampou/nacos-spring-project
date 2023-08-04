@@ -67,7 +67,7 @@ public class GlobalNacosPropertiesBeanDefinitionParser implements BeanDefinition
 		properties.setProperty(PropertyKeyConst.USERNAME, element.getAttribute(USERNAME));
 		properties.setProperty(PropertyKeyConst.PASSWORD, element.getAttribute(PASSWORD));
 
-        // 默认不适用云平台环境变量
+        // 默认不使用云平台环境配置
         properties.setProperty(PropertyKeyConst.IS_USE_ENDPOINT_PARSING_RULE, "false");
         properties.setProperty(PropertyKeyConst.IS_USE_CLOUD_NAMESPACE_PARSING, "false");
 

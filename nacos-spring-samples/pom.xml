@@ -13,7 +13,7 @@
     <groupId>com.alibaba.nacos</groupId>
     <artifactId>nacos-spring-samples</artifactId>
     <packaging>pom</packaging>
-    <name>Alibaba Nacos :: Samples :: POM ${project.version}</name>
+    <name>Alibaba Nacos :: Samples :: POM</name>
 
     <modules>
         <module>nacos-embedded-webserver</module>
