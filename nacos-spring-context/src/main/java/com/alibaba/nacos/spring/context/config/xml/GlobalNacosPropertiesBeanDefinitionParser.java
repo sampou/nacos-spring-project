@@ -16,9 +16,20 @@
  */
 package com.alibaba.nacos.spring.context.config.xml;
 
-import com.alibaba.nacos.api.PropertyKeyConst;
-import com.alibaba.nacos.api.annotation.NacosProperties;
-import com.alibaba.nacos.spring.util.NacosBeanUtils;
+import static com.alibaba.nacos.api.annotation.NacosProperties.ACCESS_KEY;
+import static com.alibaba.nacos.api.annotation.NacosProperties.CLUSTER_NAME;
+import static com.alibaba.nacos.api.annotation.NacosProperties.ENCODE;
+import static com.alibaba.nacos.api.annotation.NacosProperties.ENDPOINT;
+import static com.alibaba.nacos.api.annotation.NacosProperties.NAMESPACE;
+import static com.alibaba.nacos.api.annotation.NacosProperties.PASSWORD;
+import static com.alibaba.nacos.api.annotation.NacosProperties.SECRET_KEY;
+import static com.alibaba.nacos.api.annotation.NacosProperties.SERVER_ADDR;
+import static com.alibaba.nacos.api.annotation.NacosProperties.USERNAME;
+import static com.alibaba.nacos.spring.util.NacosBeanUtils.GLOBAL_NACOS_PROPERTIES_BEAN_NAME;
+import static com.alibaba.nacos.spring.util.NacosBeanUtils.registerGlobalNacosProperties;
+
+import java.util.Properties;
+
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.beans.factory.xml.BeanDefinitionParser;
@@ -26,11 +37,9 @@ import org.springframework.beans.factory.xml.ParserContext;
 import org.springframework.core.env.Environment;
 import org.w3c.dom.Element;
 
-import java.util.Properties;
-
-import static com.alibaba.nacos.api.annotation.NacosProperties.*;
-import static com.alibaba.nacos.spring.util.NacosBeanUtils.GLOBAL_NACOS_PROPERTIES_BEAN_NAME;
-import static com.alibaba.nacos.spring.util.NacosBeanUtils.registerGlobalNacosProperties;
+import com.alibaba.nacos.api.PropertyKeyConst;
+import com.alibaba.nacos.api.annotation.NacosProperties;
+import com.alibaba.nacos.spring.util.NacosBeanUtils;
 
 /**
  * Nacos Global {@link Properties} {@link BeanDefinitionParser} for
@@ -66,10 +75,6 @@ public class GlobalNacosPropertiesBeanDefinitionParser implements BeanDefinition
 		properties.setProperty(PropertyKeyConst.ENCODE, element.getAttribute(ENCODE));
 		properties.setProperty(PropertyKeyConst.USERNAME, element.getAttribute(USERNAME));
 		properties.setProperty(PropertyKeyConst.PASSWORD, element.getAttribute(PASSWORD));
-
-        // 默认不使用云平台环境配置
-        properties.setProperty(PropertyKeyConst.IS_USE_ENDPOINT_PARSING_RULE, "false");
-        properties.setProperty(PropertyKeyConst.IS_USE_CLOUD_NAMESPACE_PARSING, "false");
 
 		BeanDefinitionRegistry registry = parserContext.getRegistry();
 

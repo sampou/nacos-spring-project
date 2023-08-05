@@ -29,6 +29,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import com.alibaba.nacos.api.PropertyKeyConst;
 import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
@@ -277,6 +278,11 @@ public abstract class NacosBeanUtils {
 			String beanName) {
 		Properties globalProperties = resolveProperties(globalPropertiesAttributes,
 				propertyResolver);
+
+        // 默认不使用云平台环境配置
+        globalProperties.setProperty(PropertyKeyConst.IS_USE_ENDPOINT_PARSING_RULE, "false");
+        globalProperties.setProperty(PropertyKeyConst.IS_USE_CLOUD_NAMESPACE_PARSING, "false");
+
 		registerSingleton(registry, beanName, globalProperties);
 	}
 
